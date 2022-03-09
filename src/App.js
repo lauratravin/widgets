@@ -4,18 +4,25 @@ import Accordion from "./components/Accordion";
 import { useState } from "react";
 
 const items = [
-  {title: 'What is React?',
-  content:  'sdfdsfs'},
-  {title: 'What is a cat?',
-  content:  'mmmmmmm'},
-  {title: 'What is a dog?',
-  content:  'dddddd'},
-]
+  {
+    title: "What is React?",
+    content: "React is a front end javascript framework",
+  },
+  {
+    title: "Why use React?",
+    content: "React is a favorite JS library among engineers",
+  },
+  {
+    title: "How do you use React?",
+    content: "You use React by creating components",
+  },
+];
 
 
-export default () => {
-
-  return (<div>
+const App = () => {
+  return (
+  <div>
     <Accordion items={items}/>
   </div>)
 }
+export default App;
