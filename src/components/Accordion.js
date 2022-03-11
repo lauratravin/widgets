@@ -23,11 +23,11 @@ const Accordion = ({ items }) => {
               onClick={() => onTitleclick(index)}>
                     <i className="dropdown icon"></i> {i.title}
               </div>
-              <div className={`content +${active}}><p> {i.content} </p>  </div>
+              <div className={`content ${active}`}><p> {i.content} </p>  </div>
         </React.Fragment>)
     })
-   return <div className="ui styled accordion">{renderedItems}
-          <h1>{activeIndex}</h1>
+   return <div className="ui styled accordion">
+            {renderedItems} 
           </div>
 }
 
