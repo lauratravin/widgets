@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css"
 import Accordion from "./components/Accordion";
 import { useState } from "react";
+import Search from "./components/Search";
 
 const items = [
   {
@@ -22,7 +23,8 @@ const items = [
 const App = () => {
   return (
   <div>
-    <Accordion items={items}/>
+    < Search />
+    {/* <Accordion items={items}/> */}
   </div>)
 }
 export default App;
