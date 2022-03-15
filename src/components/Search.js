@@ -32,16 +32,16 @@ useEffect(() => {
 
 const renderResult = result.map((m) => {
     return(
-        <div className="item">
+        <div className="item" key={m.pageid}>
                 <div className="content">
                     <div className="header"><h2>{m.title}</h2></div>
-                    {m.snippet}
+                    <span dangerouslySetInnerHTML={{__html: m.snippet}}></span>
+                    {/* {m.snippet} */}
                 </div>
         </div>
     )
 
 })
-
 
 
 
