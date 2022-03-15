@@ -3,11 +3,8 @@ import axios from "axios";
 
 const Search = () => {
 
-const[term, setTerm] = useState('cats')
+const[term, setTerm] = useState(' ')
 const[result, setResult] = useState([])
-
-
-console.log(result)
 
 useEffect(() => {
 
@@ -24,11 +21,31 @@ useEffect(() => {
                     srsearch: term
                         }
             }); //get
-            setResult(data)
+            setResult(data.query.search)
         }
-        search()
+        if (term){
+            search() //term cannot be empty for the api
+        }
+        
 
 }, [term])
+
+const renderResult = result.map((m) => {
+    return(
+        <div className="item">
+                <div className="content">
+                    <div className="header"><h2>{m.title}</h2></div>
+                    {m.snippet}
+                </div>
+        </div>
+    )
+
+})
+
+
+
+
+
 
     return (
         <div>
@@ -41,6 +58,8 @@ useEffect(() => {
                     />
                 </div>
             </div>
+            <div className="ui celled list">{renderResult}</div>
+           
         </div>
     );
 
