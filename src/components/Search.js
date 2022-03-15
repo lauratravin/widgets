@@ -3,11 +3,32 @@ import axios from "axios";
 
 const Search = () => {
 
-const[term, setTerm] = useState('')
+const[term, setTerm] = useState('cats')
+const[result, setResult] = useState([])
+
+
+console.log(result)
 
 useEffect(() => {
-   console.log("dfsdf")
-},[term])
+
+    //you can use async and await directly in use Effect function so you have to:
+  
+       const search = async () => { 
+           const {data} = await axios.get(" https://en.wikipedia.org/w/api.php?",
+            {
+                params: {
+                    action: 'query',
+                    list: 'search',
+                    origin: '*',
+                    format: 'json',
+                    srsearch: term
+                        }
+            }); //get
+            setResult(data)
+        }
+        search()
+
+}, [term])
 
     return (
         <div>
