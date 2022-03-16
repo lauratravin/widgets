@@ -23,16 +23,23 @@ useEffect(() => {
             }); //get
             setResult(data.query.search)
         }
-        if (term){
-            search() //term cannot be empty for the api
-        }
-        
 
-}, [term])
+       const timeoutId = setTimeout(() => {
+            if (term){
+                search() //term cannot be empty for the api
+            }
+        }, 500)
+        
+       
+
+ }, [term])
 
 const renderResult = result.map((m) => {
     return(
         <div className="item" key={m.pageid}>
+                <div className="right floated content">
+                    <a className="ui button" href={`https://en.wikipedia.org?curid=${m.pageid}`}>Go</a>
+                </div>
                 <div className="content">
                     <div className="header"><h2>{m.title}</h2></div>
                     <span dangerouslySetInnerHTML={{__html: m.snippet}}></span>
