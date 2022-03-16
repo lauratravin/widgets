@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Search = () => {
 
-const[term, setTerm] = useState(' ')
+const[term, setTerm] = useState('cat')
 const[result, setResult] = useState([])
 
 useEffect(() => {
@@ -23,13 +23,20 @@ useEffect(() => {
             }); //get
             setResult(data.query.search)
         }
-
-       const timeoutId = setTimeout(() => {
-            if (term){
-                search() //term cannot be empty for the api
-            }
-        }, 500)
-        
+        if (term && !result.length){  //if terms exist bcos default search, but here is no previous seach.EJ when page loads 1st time
+            search()
+        } else {
+            //set time out and cleanup fn when user already has results
+            const timeoutId = setTimeout(() => {
+                if (term){
+                    search() //term cannot be empty for the api
+                }
+            }, 1000)
+            
+           return () => {
+               clearTimeout(timeoutId)
+           };
+        }
        
 
  }, [term])
