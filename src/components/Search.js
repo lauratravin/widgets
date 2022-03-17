@@ -31,7 +31,7 @@ useEffect(() => {
                 if (term){
                     search() //term cannot be empty for the api
                 }
-            }, 1000)
+            }, 1001)
             
            return () => {
                clearTimeout(timeoutId)
