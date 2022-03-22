@@ -44,7 +44,11 @@ const App = () => {
   <div>
     {/* < Search /> */}
     {/* <Accordion items={items}/> */}
-    <Dropdown options={ options }/>
+    <Dropdown 
+      options={ options } 
+      selectedDD={dropdownSelected}
+      onSelectedChange={setDropdownSelected}
+    />
 
   </div>)
 }
