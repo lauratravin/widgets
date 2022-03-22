@@ -35,7 +35,11 @@ const options = [
   }
 ]
 
+
+
 const App = () => {
+    const [dropdownSelected, setDropdownSelected] = useState(options[0])
+
   return (
   <div>
     {/* < Search /> */}
